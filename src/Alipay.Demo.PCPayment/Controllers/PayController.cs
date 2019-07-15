@@ -51,7 +51,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 		    // 设置同步回调地址
 		    request.SetReturnUrl($"http://{Request.Host}/Pay/Callback");
 		    // 设置异步通知接收地址
-		    request.SetNotifyUrl("");
+		    request.SetNotifyUrl("http://web.yzn.mqsocial.com/Pay/Notify");
 		    // 将业务model载入到request
 		    request.SetBizModel(model);
 
@@ -91,7 +91,7 @@ namespace Alipay.Demo.PCPayment.Controllers
 				    //注意：
 				    //退款日期超过可退款期限后（如三个月可退款），支付宝系统发送该交易状态通知
 				    Console.WriteLine(Request.Form["trade_status"]);
-
+Console.WriteLine("=========验证签名成功！！！！！");
 				    await Response.WriteAsync("success");
 			    }
 			    else
